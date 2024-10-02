@@ -1,0 +1,28 @@
+<section
+  class="container bg-slate-400 bg-opacity-70 w-screen h-5/6 flex flex-col items-center justify-center"
+>
+  <div
+    class="project_containers h-full bg-yellow-200 grid justify-items-center w-9/12"
+  >
+    <div class="project_container bg-white m-1 grid grid-cols-3 w-9/12">
+      <div class="project m-5 border-black border-2">
+        @for (p of addProjectsHere; track p){
+          <img [src]="p.imageUrl" [alt]="p.project_name" />
+          <h2>{{ p.project_name }}</h2>
+          <a href="#" class="btn" (click)="(p.url)">View Project</a>
+        }
+      </div>
+    </div>
+  </div>
+  <mat-paginator
+    [length]="projects.length"
+    [pageSize]="size"
+    [pageSizeOptions]="[6, 12, 18]"
+    [showFirstLastButtons]="true"
+    [pageIndex]="page"
+    (page)="getProjects($event)"
+    aria-label="Select page"
+    class=""
+  >
+  </mat-paginator>
+</section>

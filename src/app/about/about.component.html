@@ -1,0 +1,36 @@
+<section class="grid">
+<div class=" bg-opacity-50 text-white grid-cols-2 gap-3
+max-h-fit max-w-fit place-self-center grid w-10/12">
+<div class="animated_intro
+place-content-center text-center font-bold ">
+ <div class="m-5 p-3 text-6xl text-black">{{typedIntro$ | async}}</div>
+ <div class="m-5 p-3 text-8xl text-white ">{{typedName$ | async}}</div>
+ <div class="m-5 p-3 text-5xl text-orange-400 text-ellipsis">{{typedJobTitle$ | async}}</div>
+</div>
+<div class="container grid ">
+  <img src="/assets/images/pp.png" alt="Profile picture of Gregory"
+  class="profile_picture border-black border-3 w-1/2
+  h-5/6 rounded-xl place-self-center shadow-2xl shadow-black bg-orange-400">
+</div>
+<button class="open_resume border-orange-400
+bg-orange-400 text-black border-2
+w-1/5 m-2 place-self-end font-bold rounded-md
+ hover:bg-black hover:text-orange-400"
+ (click)="goToLink('/assets/images/Gregory-Reeves-Front End Software Development .pdf')">Resume</button>
+<button class="open_cert border-orange-400
+bg-orange-400 text-black border-2  hover:bg-black
+hover:text-orange-400
+w-1/5 m-2 font-bold rounded-md "
+(click)="goToLink('/assets/images/certificate.pdf')">Certification</button>
+</div>
+<div class="about_me bg-black bg-opacity-50 text-white
+ border-white border-2 w-1/2 pl-4 rounded-xl
+ place-self-center inline">I began my development
+journey in 2021 by attending the Kenzie Academy at Southern New
+Hampshire University. While in attendance I acquired skills such
+as HTML, CSS, JavaScript, NodeJs/ExpressJs, ReactJs, and
+AngularJs.<span class="ml-2 rounded-md border-2 border-orange-400 bg-orange-400 text-black
+font-bold cursor-pointer hover:bg-black hover:text-orange-400
+hover:border-orange-400" (click)="openDialog()"> Read More...</span>
+</div>
+</section>
