@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { Projects } from '../projects';
 @Component({
@@ -8,7 +8,8 @@ import { Projects } from '../projects';
   styleUrls: ['./projects.component.css'],
   imports: [MatPaginatorModule]
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements OnInit {
+
   page = 0;
   size = 6;
   trackby: any;
@@ -63,12 +64,14 @@ export class ProjectsComponent {
       url: 'https://github.com/KingDrahggo/Akira-Movie-App',
     }
   ];
-  ngOnIgnit(){
-this.getProjects({
-  pageIndex: this.page,
-  pageSize: this.size,
-})
-  }
+
+  ngOnInit(): void {
+    this.getProjects({
+      pageIndex: this.page,
+      pageSize: this.size,
+    })
+}
+
   getProjects(obj: { pageIndex: number; pageSize: number; }){
   let index = 0;
   let startingIndex = obj.pageIndex * obj.pageSize;

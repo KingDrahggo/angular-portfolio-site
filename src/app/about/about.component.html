@@ -3,9 +3,9 @@
 max-h-fit max-w-fit place-self-center grid w-10/12">
 <div class="animated_intro
 place-content-center text-center font-bold ">
- <div class="m-5 p-3 text-6xl text-black">{{typedIntro$ }}</div>
- <div class="m-5 p-3 text-8xl text-white ">{{typedName$ }}</div>
- <div class="m-5 p-3 text-5xl text-orange-400 text-ellipsis">{{typedJobTitle$}}</div>
+ <div class="m-5 p-3 text-6xl text-black">{{typedIntro$ | async }}</div>
+ <div class="m-5 p-3 text-8xl text-white ">{{typedName$ | async }}</div>
+ <div class="m-5 p-3 text-5xl text-orange-400 text-ellipsis">{{typedJobTitle$ | async}}</div>
 </div>
 <div class="container grid ">
   <img src="/assets/images/pp.png" alt="Profile picture of Gregory"

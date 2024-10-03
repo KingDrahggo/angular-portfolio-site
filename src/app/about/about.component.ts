@@ -4,12 +4,14 @@ import { TypewritereffectService } from '../typewritereffect.service';
 import { map } from 'rxjs';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
+import { AsyncPipe} from '@angular/common';
+
 @Component({
   selector: 'app-about',
   standalone: true,
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css'],
-  imports:[MatDialogModule],
+  imports:[MatDialogModule, AsyncPipe],
 })
 export class AboutComponent {
   intro = ['Hello! My Name is'];

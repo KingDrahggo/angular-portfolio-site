@@ -5,13 +5,16 @@
     class="project_containers h-full bg-yellow-200 grid justify-items-center w-9/12"
   >
     <div class="project_container bg-white m-1 grid grid-cols-3 w-9/12">
-      <div class="project m-5 border-black border-2">
-        <!-- @for (p of addProjectsHere; track p){
-          <img [src]="p.imageUrl" [alt]="p.project_name" />
-          <h2>{{ p.project_name }}</h2>
-          <a href="#" class="btn" (click)="(p.url)">View Project</a>
-        } -->
-      </div>
+
+        @for (p of addProjectsHere; track p){
+          <ul>
+            <li class="m-5 w-5/6 h-5/6 border-black border-2">
+              <img [src]="p.imageUrl" [alt]="p.project_name" />
+              <h2>{{ p.project_name }}</h2>
+              <a href="#" class="btn" (click)="(p.url)">View Project</a>
+            </li>
+          </ul>
+        }
     </div>
   </div>
   <mat-paginator
