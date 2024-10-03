@@ -1,10 +1,12 @@
-import { Component, ViewChild } from '@angular/core';
-import { PageEvent, MatPaginator } from '@angular/material/paginator';
+import { Component } from '@angular/core';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { Projects } from '../projects';
 @Component({
   selector: 'app-projects',
+  standalone: true,
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css'],
+  imports: [MatPaginatorModule]
 })
 export class ProjectsComponent {
   page = 0;

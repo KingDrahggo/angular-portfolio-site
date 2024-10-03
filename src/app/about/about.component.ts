@@ -6,8 +6,10 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
 @Component({
   selector: 'app-about',
+  standalone: true,
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.css']
+  styleUrls: ['./about.component.css'],
+  imports:[MatDialogModule],
 })
 export class AboutComponent {
   intro = ['Hello! My Name is'];

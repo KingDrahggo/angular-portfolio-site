@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AboutComponent } from './about/about.component';
-import { RouterModule, Routes } from '@angular/router';
+
 import { ContactMeComponent } from './contact-me/contact-me.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ServicesComponent } from './services/services.component';
 import { SkillsComponent } from './skills/skills.component';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', component: AboutComponent },
@@ -19,7 +20,6 @@ const routes: Routes = [
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
   ],
   exports: [RouterModule]
 })

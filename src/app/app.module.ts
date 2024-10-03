@@ -12,35 +12,17 @@ import { SkillsComponent } from './skills/skills.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ContactMeComponent } from './contact-me/contact-me.component';
 import { ServicesComponent } from './services/services.component';
-import { RouterModule } from '@angular/router';
+
 import { appRoutingComponents, AppRoutingModule } from './app-routing.module';
 import { DialogComponent } from './about/dialog/dialog.component';
-import { MatDialogModule } from '@angular/material/dialog';
-import {MatPaginatorModule} from '@angular/material/paginator';
+
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavbarComponent,
-    FooterComponent,
-    HomeComponent,
-    AboutComponent,
-    SkillsComponent,
-    ProjectsComponent,
-    ContactMeComponent,
-    ServicesComponent,
-    appRoutingComponents,
-    DialogComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    RouterModule.forRoot([]),
-    AppRoutingModule,
-    MatDialogModule,
-    MatPaginatorModule
-  ],
+
   providers: [],
   bootstrap: [AppComponent]
 })
