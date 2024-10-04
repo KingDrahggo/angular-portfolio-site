@@ -18,50 +18,50 @@ export class ProjectsComponent implements OnInit {
     {
       id: 0,
       project_name: 'Ecommerce Store',
-      imageUrl: '/front-end/portfolio-site/src/assets/images/comingsoonimg.jpg',
+      imageUrl: '/assets/images/comingsoonimg.jpg',
       url: 'https://github.com/KingDrahggo/eCommerce',
     },
     {
       id: 1,
-      project_name: 'Service Connect Start Up',
-      imageUrl: '/front-end/portfolio-site/src/assets/images/comingsoonimg.jpg',
+      project_name: 'Service Connect',
+      imageUrl: '/assets/images/comingsoonimg.jpg',
       url: 'https://github.com/Johnathan238/Service-Connect',
     },
     {
       id: 2,
       project_name: 'Original Portfolio Site',
-      imageUrl: '/front-end/portfolio-site/src/assets/images/comingsoonimg.jpg',
-      url: 'https://github.com/Johnathan238/Service-Connect',
+      imageUrl: '/assets/images/originalps.png',
+      url: 'https://github.com/KingDrahggo/portfolio-site',
     },
     {
       id: 3,
       project_name: 'Tic Tac Toe Game',
-      imageUrl: '/front-end/portfolio-site/src/assets/images/tictactreact.png',
+      imageUrl: '/assets/images/tictactreact.png',
       url: 'https://github.com/KingDrahggo/tictactoereact',
     },
     {
       id: 4,
       project_name: 'Akira Movie Application',
-      imageUrl: '/front-end/portfolio-site/src/assets/images/akira-movie-tn.png',
+      imageUrl: '/assets/images/akira-movie-tn.png',
       url: 'https://github.com/KingDrahggo/Akira-Movie-App',
     },
     {
       id: 5,
       project_name: 'Trivia Quiz Application',
-      imageUrl: '/front-end/portfolio-site/src/assets/images/triviaimg.PNG',
-      url: 'https://github.com/KingDrahggo/Akira-Movie-App',
+      imageUrl: '/assets/images/triviaimg.PNG',
+      url: 'https://github.com/KingDrahggo/capstone-trivia',
     },
     {
       id: 6,
       project_name: 'To Do List Application',
-      imageUrl: '/front-end/portfolio-site/src/assets/images/to-do-list.png',
-      url: 'https://github.com/KingDrahggo/Akira-Movie-App',
+      imageUrl: '/assets/images/to-do-list.png',
+      url: 'https://github.com/KingDrahggo/To-Do-List-Mean',
     },
     {
       id: 7,
       project_name: 'Pig Latin Application',
-      imageUrl: '/front-end/portfolio-site/src/assets/images/piglatinimg.jpg',
-      url: 'https://github.com/KingDrahggo/Akira-Movie-App',
+      imageUrl: '/assets/images/piglatinimg.jpg',
+      url: 'https://github.com/KingDrahggo/piglatin-unittesting',
     }
   ];
 
