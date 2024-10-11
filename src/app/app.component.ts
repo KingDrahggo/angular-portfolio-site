@@ -1,4 +1,4 @@
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { Component } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
