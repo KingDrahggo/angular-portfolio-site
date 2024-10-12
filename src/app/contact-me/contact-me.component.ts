@@ -10,7 +10,7 @@ import {FormGroup, FormBuilder , Validators, ReactiveFormsModule} from '@angular
   imports: [ ReactiveFormsModule]
 })
 export class ContactMeComponent {
-  contactForm : FormGroup;
+  contactForm: FormGroup;
 
 
   constructor( private http: HttpClient, private fb: FormBuilder) {
