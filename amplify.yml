@@ -17,3 +17,25 @@ frontend:
   cache:
     paths:
       - node_modules/**/*       # Cache node modules for faster builds
+      customHeaders:
+    - pattern: "**/*"
+      headers:
+        - key: "Cache-Control"
+          value: "max-age=0,no-cache,no-store,must-revalidate"
+  redirects:
+    - source: "/<*>"
+      target: "/index.html"
+      status: 200
+  environment:
+  variables:
+    NODE_ENV: production
+    API_URL: "http://localhost:3000/email"  # Set this if you're using the NestJS API
+backend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci
+    build:
+      commands:
+        - npm run build  # NestJS build command
+
