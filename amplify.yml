@@ -5,47 +5,46 @@ applications:
       phases:
         preBuild:
           commands:
-            - nvm install 18.19.1   # or the version you need
+            - nvm install 18.19.1
             - nvm use 18.19.1
-            - node -v               # Check Node.js version
-            - npm install           # Install dependencies
+            - node -v
+            - npm install
         build:
           commands:
-            - npm run build         # Build the project
+            - npm run build
       artifacts:
-        baseDirectory: dist/portfolio-site         # Angular build output folder
+        baseDirectory: dist/portfolio-site  # Make sure this path is correct
         files:
           - '**/*'
       cache:
         paths:
-          - node_modules/**/*       # Cache node modules for faster builds
+          - node_modules/**/*
       headers:
-      - source: "**/*.js"
-        headers:
-          - key: "Content-Type"
-            value: "application/javascript"
+        - source: "**/*.js"
+          headers:
+            - key: "Content-Type"
+              value: "application/javascript"
       redirects:
         - source: "/<*>"
           target: "/index.html"
           status: 200
       environment:
-      variables:
+        variables:
           NODE_ENV: production
-          API_URL: "http://localhost:3000/email"  # Set this if you're using the NestJS API
+          API_URL: "http://localhost:3000/email"
 
-backend:
-    phases:
-      preBuild:
-        commands:
-        - npm ci
-      build:
-      commands:
-        - npm run build  # Replace with your backend build command, like `npm run build`
-    artifacts:
-      baseDirectory: dist/portfolio-site # Replace with backend build folder
-      files:
-        - '**/*'
-    cache:
-      paths:
-      - node_modules/**/*
-
+    backend:
+      phases:
+        preBuild:
+          commands:
+            - npm ci
+        build:
+          commands:
+            - npm run build  # Ensure this matches the actual backend build command
+      artifacts:
+        baseDirectory: dist/portfolio-site  # Update to the correct backend output directory
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - node_modules/**/*
