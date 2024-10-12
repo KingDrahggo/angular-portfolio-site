@@ -12,6 +12,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ContactMeComponent } from './contact-me/contact-me.component';
 import { ServicesComponent } from './services/services.component';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -27,7 +28,8 @@ import { CommonModule } from '@angular/common';
     ServicesComponent,
     NavbarComponent,
   RouterModule,
-CommonModule]
+CommonModule,
+ReactiveFormsModule]
 })
 export class AppComponent {
   title = 'portfolio-site';
