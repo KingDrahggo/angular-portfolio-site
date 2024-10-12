@@ -1,35 +1,37 @@
 version: 1
-frontend:
-  phases:
-    preBuild:
-      commands:
-        - nvm install 18.19.1   # or the version you need
-        - nvm use 18.19.1
-        - node -v               # Check Node.js version
-        - npm install           # Install dependencies
-    build:
-      commands:
-        - npm run build         # Build the project
-  artifacts:
-    baseDirectory: dist/portfolio-site         # Angular build output folder
-    files:
-      - '**/*'
-  cache:
-    paths:
-      - node_modules/**/*       # Cache node modules for faster builds
-  customHeaders:
-    - pattern: '**/*.js'
+applications:
+  - appRoot: front-end/portfolio-site
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            - nvm install 18.19.1   # or the version you need
+            - nvm use 18.19.1
+            - node -v               # Check Node.js version
+            - npm install           # Install dependencies
+        build:
+          commands:
+            - npm run build         # Build the project
+      artifacts:
+        baseDirectory: dist/portfolio-site         # Angular build output folder
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - node_modules/**/*       # Cache node modules for faster builds
+      customHeaders:
+        - pattern: '**/*.js'
       headers:
         - key: 'Content-Type'
           value: 'application/javascript'
-  redirects:
-    - source: "/<*>"
-      target: "/index.html"
-      status: 200
-  environment:
-  variables:
-    NODE_ENV: production
-    API_URL: "http://localhost:3000/email"  # Set this if you're using the NestJS API
+      redirects:
+        - source: "/<*>"
+          target: "/index.html"
+          status: 200
+      environment:
+      variables:
+          NODE_ENV: production
+          API_URL: "http://localhost:3000/email"  # Set this if you're using the NestJS API
 
 backend:
     phases:
