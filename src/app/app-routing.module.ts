@@ -3,8 +3,7 @@
 // import { AboutComponent } from './about/about.component';
 
 // import { ContactMeComponent } from './contact-me/contact-me.component';
-// import { ProjectsComponent } from './projects/projects.component';
-// import { ServicesComponent } from './services/services.component';
+// import { ProjectsComponent } from './projects/projects.component';git
 // import { SkillsComponent } from './skills/skills.component';
 // import { RouterModule, Routes } from '@angular/router';
 
