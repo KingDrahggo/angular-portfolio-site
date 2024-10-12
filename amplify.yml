@@ -11,7 +11,7 @@ frontend:
       commands:
         - npm run build         # Build the project
   artifacts:
-    baseDirectory: dist         # Angular build output folder
+    baseDirectory: dist/portfolio-site         # Angular build output folder
     files:
       - '**/*'
   cache:
