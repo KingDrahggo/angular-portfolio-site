@@ -18,10 +18,10 @@ frontend:
     paths:
       - node_modules/**/*       # Cache node modules for faster builds
   customHeaders:
-    - pattern: "**/*"
+    - pattern: '**/*.js'
       headers:
-        - key: "Cache-Control"
-          value: "max-age=0,no-cache,no-store,must-revalidate"
+        - key: 'Content-Type'
+          value: 'application/javascript'
   redirects:
     - source: "/<*>"
       target: "/index.html"
