@@ -8,11 +8,7 @@ import {FormGroup, FormControl , Validators} from '@angular/forms';
   standalone: true,
   templateUrl: './contact-me.component.html',
   styleUrls: ['./contact-me.component.css'],
-  imports: [ReactiveFormsModule, 
-// TODO: `HttpClientModule` should not be imported into a component directly.
-// Please refactor the code to add `provideHttpClient()` call to the provider list in the
-// application bootstrap logic and remove the `HttpClientModule` import from this component.
-HttpClientModule]
+  imports: []
 })
 export class ContactMeComponent {
   contactForm!: FormGroup;
