@@ -17,7 +17,7 @@ frontend:
   cache:
     paths:
       - node_modules/**/*       # Cache node modules for faster builds
-      customHeaders:
+  customHeaders:
     - pattern: "**/*"
       headers:
         - key: "Cache-Control"
@@ -30,7 +30,7 @@ frontend:
   variables:
     NODE_ENV: production
     API_URL: "http://localhost:3000/email"  # Set this if you're using the NestJS API
-backend:
+  backend:
   phases:
     preBuild:
       commands:
