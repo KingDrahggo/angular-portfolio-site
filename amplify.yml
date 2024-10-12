@@ -30,6 +30,7 @@ frontend:
   variables:
     NODE_ENV: production
     API_URL: "http://localhost:3000/email"  # Set this if you're using the NestJS API
+
   backend:
   phases:
     preBuild:
@@ -37,5 +38,12 @@ frontend:
         - npm ci
     build:
       commands:
-        - npm run build  # NestJS build command
+        - npm run build  # Replace with your backend build command, like `npm run build`
+  artifacts:
+    baseDirectory: dist/portfolio-site # Replace with backend build folder
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
 
