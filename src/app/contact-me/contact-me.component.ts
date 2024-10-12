@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import {FormGroup, FormControl , Validators} from '@angular/forms';
@@ -8,7 +8,11 @@ import {FormGroup, FormControl , Validators} from '@angular/forms';
   standalone: true,
   templateUrl: './contact-me.component.html',
   styleUrls: ['./contact-me.component.css'],
-  imports: [ReactiveFormsModule, HttpClientModule]
+  imports: [ReactiveFormsModule, 
+// TODO: `HttpClientModule` should not be imported into a component directly.
+// Please refactor the code to add `provideHttpClient()` call to the provider list in the
+// application bootstrap logic and remove the `HttpClientModule` import from this component.
+HttpClientModule]
 })
 export class ContactMeComponent {
   contactForm!: FormGroup;
