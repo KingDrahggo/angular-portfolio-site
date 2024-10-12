@@ -19,11 +19,11 @@ applications:
       cache:
         paths:
           - node_modules/**/*       # Cache node modules for faster builds
-      customHeaders:
-        - pattern: '**/*.js'
       headers:
-        - key: 'Content-Type'
-          value: 'application/javascript'
+      - source: "**/*.js"
+        headers:
+          - key: "Content-Type"
+            value: "application/javascript"
       redirects:
         - source: "/<*>"
           target: "/index.html"
