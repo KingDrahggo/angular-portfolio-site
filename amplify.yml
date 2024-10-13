@@ -38,7 +38,10 @@ applications:
       phases:
         preBuild:
           commands:
-            - npm ci
+            - nvm install 18.19.1
+            - nvm use 18.19.1
+            - node -v
+            - npm install
         build:
           commands:
             - npm run build  # Ensure this matches the actual backend build command
