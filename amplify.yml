@@ -5,7 +5,7 @@ applications:
       phases:
         preBuild:
           commands:
-            - nvm install 18.19.1
+            - nvm install 18.19.1 
             - nvm use 18.19.1
             - node -v
             - npm install
