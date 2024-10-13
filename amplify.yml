@@ -46,7 +46,7 @@ applications:
           commands:
             - npm run build  # Ensure this matches the actual backend build command
       artifacts:
-        baseDirectory: dist/portfolio-site  # Update to the correct backend output directory
+        baseDirectory: dist/ # Update to the correct backend output directory
         files:
           - '**/*'
       cache:
