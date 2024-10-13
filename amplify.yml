@@ -14,7 +14,7 @@ applications:
             - nvm use 18.19.1
             - npm run build
       artifacts:
-        baseDirectory: dist/portfolio-site # Make sure this path is correct
+        baseDirectory: dist # Make sure this path is correct
         files:
           - '**/*'
       cache:
