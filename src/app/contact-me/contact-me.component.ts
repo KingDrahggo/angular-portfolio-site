@@ -7,7 +7,7 @@ import {FormGroup, FormBuilder , Validators, ReactiveFormsModule} from '@angular
   standalone: true,
   templateUrl: './contact-me.component.html',
   styleUrls: ['./contact-me.component.css'],
-  imports: [ ReactiveFormsModule]
+  imports: [ReactiveFormsModule]
 })
 export class ContactMeComponent {
   contactForm: FormGroup;
