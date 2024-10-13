@@ -12,7 +12,6 @@ import {FormGroup, FormBuilder , Validators, ReactiveFormsModule} from '@angular
 export class ContactMeComponent {
   contactForm: FormGroup;
 
-
   constructor( private http: HttpClient, private fb: FormBuilder) {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
