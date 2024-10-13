@@ -20,11 +20,15 @@ applications:
       cache:
         paths:
           - node_modules/**/*
-      headers:
-        - source: "**/*.js"
+      customHeaders:
+        - pattern: '**/*.js'
           headers:
             - key: "Content-Type"
               value: "application/javascript"
+        - pattern: '**/*.css'
+          headers:
+            - key: "Content-Type"
+              value: "text/css"
       redirects:
         - source: "/<*>"
           target: "/index.html"
