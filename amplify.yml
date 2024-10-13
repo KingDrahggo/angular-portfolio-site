@@ -14,7 +14,7 @@ applications:
             - nvm use 18.19.1
             - npm run build
       artifacts:
-        baseDirectory: dist/  # Make sure this path is correct
+        baseDirectory: dist # Make sure this path is correct
         files:
           - '**/*'
       cache:
@@ -46,7 +46,7 @@ applications:
           commands:
             - npm run build  # Ensure this matches the actual backend build command
       artifacts:
-        baseDirectory: dist/ # Update to the correct backend output directory
+        baseDirectory: backend/dist # Update to the correct backend output directory
         files:
           - '**/*'
       cache:
