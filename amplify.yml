@@ -5,12 +5,13 @@ applications:
       phases:
         preBuild:
           commands:
-            - nvm install 18.19.1 
+            - nvm install 18.19.1
             - nvm use 18.19.1
             - node -v
             - npm install
         build:
           commands:
+            - nvm use 18.19.1
             - npm run build
       artifacts:
         baseDirectory: dist/portfolio-site  # Make sure this path is correct
