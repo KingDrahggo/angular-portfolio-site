@@ -22,8 +22,6 @@ export class ContactMeComponent {
   }
 
 
-
-
   onSubmit() {
     if (this.contactForm.valid) {
       this.http.post<any>('http://localhost:3000/email', this.contactForm.value)
