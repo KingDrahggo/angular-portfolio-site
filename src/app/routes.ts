@@ -11,6 +11,7 @@ const routeConfig: Routes = [
     { path: 'projects', component: ProjectsComponent },
     { path: 'services', component: ServicesComponent },
     { path: 'skills', component: SkillsComponent },
+    { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 export default routeConfig;
