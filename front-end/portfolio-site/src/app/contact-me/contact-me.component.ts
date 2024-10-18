@@ -24,7 +24,7 @@ export class ContactMeComponent {
   onSubmit() {
     if (this.contactForm.valid) {
       // Replace with the correct backend URL when deployed
-      this.http.post<any>('http://18.219.159.17:3000/email', this.contactForm.value)
+      this.http.post<any>('https://18.219.159.17:3000/email', this.contactForm.value)
         .subscribe(
           response => {
             console.log('Email sent successfully!', response); // Handle success

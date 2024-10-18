@@ -48,7 +48,7 @@ export class ProjectsComponent implements OnInit {
     {
       id: 5,
       project_name: 'Trivia Quiz Application',
-      imageUrl: '/assets/images/triviaimg.PNG',
+      imageUrl: '/assets/images/triviaimg.png',
       url: 'https://github.com/KingDrahggo/capstone-trivia',
     },
     {
