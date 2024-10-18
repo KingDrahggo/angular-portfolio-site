@@ -1,18 +1,16 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import {FormGroup, FormControl , Validators} from '@angular/forms';
+import {FormGroup, FormBuilder , Validators, ReactiveFormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-contact-me',
   standalone: true,
   templateUrl: './contact-me.component.html',
   styleUrls: ['./contact-me.component.css'],
-  imports: [ReactiveFormsModule, HttpClientModule]
+  imports: [ReactiveFormsModule]
 })
 export class ContactMeComponent {
-  contactForm!: FormGroup;
-
+  contactForm: FormGroup;
 
   constructor( private http: HttpClient, private fb: FormBuilder) {
     this.contactForm = this.fb.group({
@@ -21,8 +19,6 @@ export class ContactMeComponent {
       message: ['', Validators.required],
     });
   }
-
-
 
 
   onSubmit() {
