@@ -12,7 +12,7 @@ applications:
         build:
           commands:
             - nvm use 18.19.1
-            - ng build --output-path=dist
+            - npm run build
       artifacts:
         baseDirectory: dist # Ensure this matches the correct output directory
         files:
