@@ -62,6 +62,6 @@ openDialog() {
 
 // function to open the links------------------------------------------------
 goToLink(url: string) {
-  window.open(url, '_blank');
+  window.open(url,'_blank');
     }
 }
