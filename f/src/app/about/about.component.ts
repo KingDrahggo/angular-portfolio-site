@@ -27,6 +27,9 @@ import { animate, style, transition, trigger } from '@angular/animations';
     ]
   })
 export class AboutComponent {
+  resumeUrl = "https://gregoryrpdfs.s3.us-east-2.amazonaws.com/Gregory+Reeves+SDE+Resume.pdf"
+  certUrl = "https://gregoryrpdfs.s3.us-east-2.amazonaws.com/certificate.pdf"
+
   intro = ['Hello! My Name is'];
   myName = ['Gregory R. III']
   jobTitle = ["I'm a Software Developer",
@@ -61,7 +64,12 @@ openDialog() {
 }
 
 // function to open the links------------------------------------------------
-goToLink(url: string) {
-  window.open(url,'_blank');
-    }
+goToLink(pdfUrl: string) {
+  if (pdfUrl) {
+    window.open(pdfUrl, '_blank');
+  } else {
+    console.error('PDF URL is not defined.');
+  }
+}
+
 }
