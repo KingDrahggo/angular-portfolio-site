@@ -12,8 +12,8 @@ applications:
         build:
           commands:
             - nvm use 18.19.1
-            - ng build --output-path=dists
-        baseDirectory: dist # Make sure this path is correct
+            - ng build --output-path=f/dists
+        baseDirectory: f/dist # Make sure this path is correct
         files:
           - '**/*'
       cache:
