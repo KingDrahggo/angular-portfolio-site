@@ -13,7 +13,8 @@ applications:
           commands:
             - nvm use 18.19.1
             - ng build --output-path=dist
-        baseDirectory: dist # Make sure this path is correct
+      artifacts:
+        baseDirectory: dist # Ensure this matches the correct output directory
         files:
           - '**/*'
       cache:
@@ -49,7 +50,7 @@ applications:
           commands:
             - npm run build  # Ensure this matches the actual backend build command
       artifacts:
-        baseDirectory: dist # Update to the correct backend output directory
+        baseDirectory: dist # Update to the correct backend output directory if different
         files:
           - '**/*'
       cache:
