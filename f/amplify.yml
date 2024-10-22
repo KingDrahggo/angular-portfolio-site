@@ -33,13 +33,13 @@ applications:
           headers:
             - key: "Content-Type"
               value: "application/pdf"
-        - pattern: 'assets/**/*.pdf'  # Specifically target PDF files in assets folder
-          headers:
-            - key: "Content-Type"
-              value: "application/pdf"
       redirects:
         - source: "/<*>"
           target: "/index.html"
+          status: 200
+        # Exclude PDFs from being redirected to the homepage
+        - source: "/assets/*.pdf"
+          target: "/assets/*.pdf"
           status: 200
       environment:
         variables:
