@@ -29,6 +29,14 @@ applications:
           headers:
             - key: "Content-Type"
               value: "text/css"
+        - pattern: '**/*.pdf'
+          headers:
+            - key: "Content-Type"
+              value: "application/pdf"
+        - pattern: 'assets/**/*.pdf'  # Specifically target PDF files in assets folder
+          headers:
+            - key: "Content-Type"
+              value: "application/pdf"
       redirects:
         - source: "/<*>"
           target: "/index.html"
