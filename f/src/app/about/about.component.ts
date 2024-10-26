@@ -49,6 +49,7 @@ export class AboutComponent {
   .getTypewriterEffect(this.jobTitle)
   .pipe(map((text) => text));
 
+  
 // Dialog for read more----------------------------------------------------------------
   readonly dialog = inject(MatDialog);
 
