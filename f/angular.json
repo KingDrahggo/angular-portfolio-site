@@ -47,7 +47,6 @@
               "outputHashing": "all",
               "optimization": true,
               "aot": true,
-              "extractCss": true,
               "sourceMap": false,
               "namedChunks": false,
               "vendorChunk": false,
@@ -58,7 +57,7 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "serviceWorker": true,
+              "serviceWorker": false,
               "ngswConfigPath": "src/ngsw-config.json"
             },
             "development": {
