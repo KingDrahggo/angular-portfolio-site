@@ -1,20 +1,15 @@
-<section
-  class="container w-screen h-5/6 flex flex-col items-center justify-center"
->
-  <div
-    class="project_containers h-full  grid justify-items-center w-9/12"
-  >
-    <div class="project_container min-h-full m-1 grid grid-cols-3 w-9/12">
-
-        @for (p of addProjectsHere; track p){
-            <li class="flex flex-col m-2 p-2 text-center shadow-lg shadow-black
-             w-5/6 h-5/6 list-none rounded-2xl bg-black bg-opacity-50 text-white
-              border-orange-400 border-2">
-              <img class="h-4/6" [src]="p.imageUrl" [alt]="p.project_name" />
-              <h2 class="font-bold text-xl ">{{ p.project_name }}</h2>
-              <a [href]="p.url" target="_blank" class="font-medium italic underline hover:text-orange-400 " >View Project</a>
-            </li>
-        }
+<section class="container w-screen h-[80vh] flex flex-col items-center justify-center overflow-hidden">
+  <div class="project_containers h-full grid justify-items-center w-9/12">
+    <div class="project_container min-h-full m-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      @for (p of addProjectsHere; track p) {
+        <li class="flex flex-col m-2 p-4 text-center shadow-lg shadow-black w-full h-56 list-none rounded-2xl bg-black bg-opacity-50 text-white border-orange-400 border-2 transition-transform transform hover:scale-105 hover:shadow-xl">
+          <div class="h-32 w-full overflow-hidden">
+            <img class="h-full w-full object-cover" [src]="p.imageUrl" [alt]="p.project_name" />
+          </div>
+          <h2 class="font-bold text-lg mt-2">{{ p.project_name }}</h2>
+          <a [href]="p.url" target="_blank" class="font-medium italic underline hover:text-orange-400">View Project</a>
+        </li>
+      }
     </div>
   </div>
   <mat-paginator
@@ -25,7 +20,12 @@
     [pageIndex]="page"
     (page)="getProjects($event)"
     aria-label="Select page"
-    class="shadow-lg font-bold bg-orange-400  shadow-black rounded-md"
+    class="bg-orange-400 text-white shadow-lg rounded-md mt-4"
   >
   </mat-paginator>
 </section>
+
+
+
+
+

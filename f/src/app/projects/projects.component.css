@@ -1,0 +1,11 @@
+/* styles.css or styles.scss */
+mat-paginator {
+  background-color: #FB923C !important; /* Tailwind's bg-orange-400 */
+
+}
+
+
+mat-paginator button {
+  background-color: #FB923C; /* Tailwind's bg-orange-400 */
+  /* Button text color */
+}

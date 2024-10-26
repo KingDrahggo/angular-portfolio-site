@@ -31,8 +31,8 @@ export class AboutComponent {
   certUrl = "https://gregoryrpdfs.s3.us-east-2.amazonaws.com/certificate.pdf"
 
   intro = ['Hello! My Name is'];
-  myName = ['Gregory R. III']
-  jobTitle = ["I'm a Software Developer",
+  myName = ['Gregory R.']
+  jobTitle = ["I'm a Software Engineer",
     "I Can Construct",
     "Full-Stack Applications"]
   private typewriterService = inject(TypewritereffectService);

@@ -7,7 +7,13 @@
   padding: 0;
   margin: 0;
 }
-html, body { max-height: 100vh; }
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* Prevent scrolling */
+}
+
 body {
   font-family: "Poppins", sans-serif;
   background-image:url("/assets/images/website-background-2-edited.png");
@@ -18,5 +24,3 @@ body {
 }
 
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
