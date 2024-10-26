@@ -49,14 +49,14 @@ export class AboutComponent {
   .getTypewriterEffect(this.jobTitle)
   .pipe(map((text) => text));
 
-  
+
 // Dialog for read more----------------------------------------------------------------
   readonly dialog = inject(MatDialog);
 
 openDialog() {
   const dialogRef = this.dialog.open(DialogComponent, {
-    height: '14em',
-    width: '45em',
+    height: '15em',
+    width: '46em',
   });
 
   dialogRef.afterClosed().subscribe(result => {
