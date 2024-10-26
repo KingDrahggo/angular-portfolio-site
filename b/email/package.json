@@ -22,7 +22,11 @@
   "dependencies": {
     "@nestjs/common": "^10.0.0",
     "@nestjs/core": "^10.0.0",
-    "@nestjs/platform-express": "^10.0.0",
+    "@nestjs/platform-express": "^10.4.6",
+    "@types/nodemailer": "^6.4.16",
+    "compression": "^1.7.4",
+    "googleapis": "^144.0.0",
+    "nodemailer": "^6.9.15",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1"
   },

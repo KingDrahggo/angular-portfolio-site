@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import nodemailer from 'nodemailer';
+import * as nodemailer from 'nodemailer';
 import { google } from 'googleapis';
 
 @Injectable()
@@ -15,16 +15,21 @@ export class EmailService {
     const oAuth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
     oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
 
-    this.transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        type: 'OAuth2',
-        user: process.env.GMAIL_USER,
-        clientId: CLIENT_ID,
-        clientSecret: CLIENT_SECRET,
-        refreshToken: REFRESH_TOKEN,
-        accessToken: oAuth2Client.getAccessToken(),
-      },
+    // Get Access Token and set up the transporter
+    oAuth2Client.getAccessToken().then((accessToken) => {
+      this.transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          type: 'OAuth2',
+          user: process.env.GMAIL_USER,
+          clientId: CLIENT_ID,
+          clientSecret: CLIENT_SECRET,
+          refreshToken: REFRESH_TOKEN,
+          accessToken: accessToken || undefined,
+        },
+      } as nodemailer.TransportOptions); // Explicit cast to TransportOptions
+    }).catch((err) => {
+      console.error('Error retrieving access token', err);
     });
   }
 
@@ -36,6 +41,11 @@ export class EmailService {
       text: emailData.message,
     };
 
-    return await this.transporter.sendMail(mailOptions);
+    try {
+      return await this.transporter.sendMail(mailOptions);
+    } catch (error) {
+      console.error('Error sending email:', error);
+      throw error;
+    }
   }
 }
