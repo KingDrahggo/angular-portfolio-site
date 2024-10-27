@@ -27,8 +27,8 @@ import { animate, style, transition, trigger } from '@angular/animations';
     ]
   })
 export class AboutComponent {
-  resumeUrl = "https://gregoryrpdfs.s3.us-east-2.amazonaws.com/Gregory+Reeves+SDE+Resume.pdf"
-  certUrl = "https://gregoryrpdfs.s3.us-east-2.amazonaws.com/certificate.pdf"
+  resumeUrl = "/assets/images/resume.pdf"
+  certUrl = "/assets/images/certificate.pdf"
 
   intro = ['Hello! My Name is'];
   myName = ['Gregory R.']
