@@ -35,7 +35,7 @@ export class ContactMeComponent {
             console.error('Error sending email', error); // Handle error
           }
         );
-        this.contactForm.reset();
+        this.contactForm.reset(); // Reset the form
     }
   }
 }
