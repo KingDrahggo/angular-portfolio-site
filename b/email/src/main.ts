@@ -5,6 +5,7 @@ import * as compression from 'compression';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const port = process.env.PORT || 3000;
+ 
   // Enable compression
   app.use(compression());
 
