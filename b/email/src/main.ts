@@ -10,8 +10,9 @@ async function bootstrap() {
 
   // Enable CORS
   app.enableCors({
-    origin: 'https://your-angular-frontend-url.com',
+    origin: 'https://angular-portfolio-site-b.onrender.com',
     methods: 'GET,POST,PUT,DELETE,OPTIONS',
+    credentials: true,
   });
 
   await app.listen(port);
