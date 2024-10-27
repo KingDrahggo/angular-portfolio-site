@@ -37,8 +37,8 @@ export class EmailService {
 
   async sendMail(emailData: { name: string; email: string; message: string }) {
     const mailOptions = {
-      from: process.env.GMAIL_USER,
-      to: emailData.email,
+      to: process.env.GMAIL_USER,
+      from: emailData.email,
       subject: `Message from ${emailData.name}`,
       text: emailData.message,
     };
