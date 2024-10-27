@@ -1,6 +1,6 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
-import {FormGroup, FormBuilder , Validators, ReactiveFormsModule} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-me',
@@ -12,7 +12,10 @@ import {FormGroup, FormBuilder , Validators, ReactiveFormsModule} from '@angular
 export class ContactMeComponent {
   contactForm: FormGroup;
 
-  constructor( private http: HttpClient, private fb: FormBuilder) {
+  // Use the Render URL for your backend
+  private apiUrl = 'https://angular-portfolio-site-b.onrender.com'; // Update this URL
+
+  constructor(private http: HttpClient, private fb: FormBuilder) {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -20,21 +23,18 @@ export class ContactMeComponent {
     });
   }
 
-
   onSubmit() {
     if (this.contactForm.valid) {
-      this.http.post<any>('http://18.219.159.17:3000/email/send', this.contactForm.value)
+      // Send the form data to the backend API
+      this.http.post<any>(`${this.apiUrl}/email/send`, this.contactForm.value)
         .subscribe(
           response => {
-            console.log('Email sent successfully!', response)// Handle success
+            console.log('Email sent successfully!', response); // Handle success
           },
           error => {
-            console.error('Error sending email', error)
+            console.error('Error sending email', error); // Handle error
           }
         );
     }
-    console.log(this.contactForm.value.email);
   }
-
 }
-
