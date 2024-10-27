@@ -67,7 +67,7 @@ openDialog() {
 // function to open the links------------------------------------------------
 goToLink(pdfUrl: string) {
   if (pdfUrl) {
-    window.open(pdfUrl, '_blank');
+    window.open(pdfUrl,'_blank');
   } else {
     console.error('PDF URL is not defined.');
   }
