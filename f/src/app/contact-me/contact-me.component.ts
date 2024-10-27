@@ -25,8 +25,7 @@ export class ContactMeComponent {
 
   onSubmit() {
     if (this.contactForm.valid) {
-      // Send the form data to the backend API
-      this.http.post<any>(`${this.apiUrl}/email/send`, this.contactForm.value)
+      this.http.post<any>('https://angular-portfolio-site-b.onrender.com/email/send', this.contactForm.value)
         .subscribe(
           response => {
             console.log('Email sent successfully!', response); // Handle success
@@ -37,4 +36,5 @@ export class ContactMeComponent {
         );
     }
   }
+
 }
