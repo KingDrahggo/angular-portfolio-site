@@ -37,7 +37,7 @@ export class ProjectsComponent implements OnInit {
       id: 3,
       project_name: 'Tic Tac Toe Game',
       imageUrl: '/assets/images/tictactreact.png',
-      url: 'https://github.com/KingDrahggo/tictactoereact',
+      url: 'https://tictactoereact.onrender.com',
     },
     {
       id: 4,
