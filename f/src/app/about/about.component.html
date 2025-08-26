@@ -1,28 +1,49 @@
-<section class="grid p-1">
-  <div class="bg-opacity-50 text-white grid grid-cols-2 gap-3 max-h-fit max-w-fit place-self-center w-10/12">
+<section class="flex flex-col items-center p-4 h-full w-full ">
+  <div class="bg-opacity-50 text-white flex flex-col md:flex-row gap-6 max-w-6xl w-11/12  mx-auto">
 
     <!-- Typewriter Section -->
-    <div class="animated_intro place-content-center text-center font-bold" style="min-height: 20rem;">
-      <div class="m-5 p-2 text-4xl md:text-6xl text-black" style="line-height: 1.5;">{{typedIntro$ | async }}</div>
-      <div class="m-5 p-2 text-6xl md:text-8xl text-white" style="line-height: 1.2;">{{typedName$ | async }}</div>
-      <div class="m-5 p-2 text-3xl md:text-5xl text-orange-400 text-ellipsis" style="line-height: 1.3;">{{typedJobTitle$ | async }}</div>
+    <div class="animated_intro flex flex-col justify-center items-center text-center font-bold space-y-4 flex-1">
+      <div class="text-lg sm:text-4xl md:text-6xl text-black leading-snug">
+        {{ typedIntro$ | async }}
+      </div>
+      <div class="text-xl sm:text-5xl md:text-8xl text-white leading-tight">
+        {{ typedName$ | async }}
+      </div>
+      <div class="text-base sm:text-2xl md:text-5xl text-orange-400 leading-snug">
+        {{ typedJobTitle$ | async }}
+      </div>
     </div>
 
     <!-- Profile Picture Section -->
-    <div class="container grid">
-      <img src="/assets/images/pp.png" alt="Profile picture of Gregory" class="profile_picture border-black border-3 w-1/2 h-5/6 rounded-xl place-self-center shadow-2xl shadow-black bg-orange-400">
-    </div>
-
-    <!-- Buttons Section -->
-    <div class="flex justify-center space-x-4 col-span-2">
-      <button class="open_resume border-orange-400 bg-orange-400 text-black border-2 w-32 md:w-40 m-2 font-bold rounded-md hover:bg-black hover:text-orange-400" (click)="goToLink(resumeUrl)">Resume</button>
-      <button class="open_cert border-orange-400 bg-orange-400 text-black border-2 w-32 md:w-40 m-2 font-bold rounded-md hover:bg-black hover:text-orange-400" (click)="goToLink(certUrl)">Certification</button>
+    <div class="flex justify-center items-center flex-1">
+      <img src="/assets/images/pp.png"
+           alt="Profile picture of Gregory"
+           class="w-28 sm:w-52 md:w-64 lg:w-72 rounded-xl shadow-2xl border-4 border-black bg-orange-400">
     </div>
   </div>
 
+  <!-- Buttons Section -->
+  <div class="flex flex-wrap justify-center gap-4 mt-4 ">
+    <button
+      class="border-orange-400 bg-orange-400 text-xs sm:text-base text-black border-2 px-3 py-0 sm:px-6 sm:py-2 font-bold rounded-md hover:bg-black hover:text-orange-400">
+      Resume
+    </button>
+    <button
+      class="border-orange-400 bg-orange-400 text-xs sm:text-base text-black border-2 px-6 py-2 font-bold rounded-md hover:bg-black hover:text-orange-400">
+      Certification
+    </button>
+  </div>
+
   <!-- About Me Section -->
-  <div class="about_me bg-black bg-opacity-50 text-white border-white border-2 w-1/2 mt-3 mb-2 pl-4 rounded-xl place-self-center inline">I began my development journey in 2021 by attending the Kenzie Academy at Southern New Hampshire University. While in attendance I acquired skills such as HTML, CSS, JavaScript, NodeJs/ExpressJs, ReactJs, and AngularJs.
-    <span class="ml-2 rounded-md border-2 border-orange-400 bg-orange-400 text-black font-bold cursor-pointer hover:bg-black hover:text-orange-400 hover:border-orange-400" (click)="openDialog()"> Read More...</span>
+  <div
+    class="about_me bg-black bg-opacity-50 text-white border border-white w-11/12 md:w-2/3 lg:w-1/2 mt-6 mb-4 p-4 rounded-xl mx-auto text-center text-xs sm:text-base">
+    I began my development journey in 2021 by attending the Kenzie Academy at Southern New Hampshire University.
+    While in attendance I acquired skills such as HTML, CSS, JavaScript, NodeJs/ExpressJs, ReactJs, and AngularJs.
+    <span
+      class="ml-2 px-2  rounded-md border-2 border-orange-400 bg-orange-400 text-black font-bold cursor-pointer hover:bg-black hover:text-orange-400 hover:border-orange-400"
+      (click)="openDialog()">
+      Read More...
+    </span>
   </div>
 </section>
 

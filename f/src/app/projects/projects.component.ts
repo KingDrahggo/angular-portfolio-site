@@ -31,7 +31,7 @@ export class ProjectsComponent implements OnInit {
       id: 2,
       project_name: 'Original Portfolio Site',
       imageUrl: '/assets/images/originalps.png',
-      url: 'https://github.com/KingDrahggo/portfolio-site',
+      url: 'https://kingdrahggo.github.io/portfolio-site/',
     },
     {
       id: 3,
@@ -49,7 +49,7 @@ export class ProjectsComponent implements OnInit {
       id: 5,
       project_name: 'Trivia Quiz Application',
       imageUrl: '/assets/images/triviaimg.PNG',
-      url: 'https://github.com/KingDrahggo/capstone-trivia',
+      url: 'https://kingdrahggo.github.io/capstone-trivia/',
     },
     {
       id: 6,
@@ -61,7 +61,7 @@ export class ProjectsComponent implements OnInit {
       id: 7,
       project_name: 'Pig Latin Application',
       imageUrl: '/assets/images/piglatinimg.jpg',
-      url: 'https://github.com/KingDrahggo/piglatin-unittesting',
+      url: 'https://kingdrahggo.github.io/piglatin-unittesting/',
     }
   ];
 
