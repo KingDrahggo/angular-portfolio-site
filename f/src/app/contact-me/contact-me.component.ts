@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
@@ -7,10 +8,13 @@ import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angula
   standalone: true,
   templateUrl: './contact-me.component.html',
   styleUrls: ['./contact-me.component.css'],
-  imports: [ReactiveFormsModule, HttpClientModule]
+  imports: [CommonModule, ReactiveFormsModule, HttpClientModule]
 })
 export class ContactMeComponent {
   contactForm: FormGroup;
+  isLoading = false;
+  successMessage = '';
+  errorMessage = '';
 
   // Use the Render URL for your backend
   private apiUrl = 'https://angular-portfolio-site-b.onrender.com'; // Update this URL
@@ -25,17 +29,25 @@ export class ContactMeComponent {
 
   onSubmit() {
     if (this.contactForm.valid) {
+      this.isLoading = true;
+      this.successMessage = '';
+      this.errorMessage = '';
+
       // Send the form data to the backend API
       this.http.post<any>(`${this.apiUrl}/email/send`, this.contactForm.value)
-        .subscribe(
-          response => {
-            console.log('Email sent successfully!', response); // Handle success
+        .subscribe({
+          next: (response) => {
+            console.log('Email sent successfully!', response);
+            this.successMessage = 'Message sent successfully! I\'ll get back to you soon.';
+            this.contactForm.reset();
+            this.isLoading = false;
           },
-          error => {
-            console.error('Error sending email', error); // Handle error
+          error: (error) => {
+            console.error('Error sending email', error);
+            this.errorMessage = 'Failed to send message. Please try again or contact me directly via email.';
+            this.isLoading = false;
           }
-        );
-        this.contactForm.reset(); // Reset the form
+        });
     }
   }
 }

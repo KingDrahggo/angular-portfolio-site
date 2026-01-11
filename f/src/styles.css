@@ -3,24 +3,25 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
   padding: 0;
   margin: 0;
 }
-html, body {
+
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden; /* Prevent scrolling */
+  overflow: hidden;
+  /* Prevent scrolling */
 }
 
 body {
   font-family: "Poppins", sans-serif;
-  background-image:url("/assets/images/website-background-2-edited.png");
+  background-image: url("/assets/images/website-background-2-edited.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center top;
   backdrop-filter: blur(4px);
 }
-
-
