@@ -32,9 +32,11 @@ export class EmailService {
 
       console.log('Access Token retrieved successfully');
 
-      // Create transporter with fresh token
+      // Create transporter with explicit SMTP settings and timeout configuration
       const transporter = nodemailer.createTransport({
-        service: 'gmail',
+        host: 'smtp.gmail.com',
+        port: 587,
+        secure: false, // Use STARTTLS
         auth: {
           type: 'OAuth2',
           user: process.env.GMAIL_USER,
@@ -43,6 +45,9 @@ export class EmailService {
           refreshToken: process.env.GMAIL_REFRESH_TOKEN,
           accessToken: accessToken,
         },
+        connectionTimeout: 10000, // 10 seconds
+        greetingTimeout: 10000,
+        socketTimeout: 10000,
       } as nodemailer.TransportOptions);
 
       const mailOptions = {
