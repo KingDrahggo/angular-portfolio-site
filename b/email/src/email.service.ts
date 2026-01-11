@@ -1,73 +1,70 @@
 import { Injectable } from '@nestjs/common';
-import * as nodemailer from 'nodemailer';
-import { google } from 'googleapis';
+import * as sgMail from '@sendgrid/mail';
 
 @Injectable()
 export class EmailService {
-  private oAuth2Client;
-
   constructor() {
-    const CLIENT_ID = process.env.GMAIL_CLIENT_ID;
-    const CLIENT_SECRET = process.env.GMAIL_CLIENT_SECRET;
-    const REFRESH_TOKEN = process.env.GMAIL_REFRESH_TOKEN;
-    const REDIRECT_URI = 'https://developers.google.com/oauthplayground';
-
-    this.oAuth2Client = new google.auth.OAuth2(
-      CLIENT_ID,
-      CLIENT_SECRET,
-      REDIRECT_URI,
-    );
-    this.oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
+    // Initialize SendGrid with API key from environment
+    const apiKey = process.env.SENDGRID_API_KEY;
+    if (!apiKey) {
+      console.error('SENDGRID_API_KEY is not set in environment variables');
+    } else {
+      sgMail.setApiKey(apiKey);
+      console.log('SendGrid initialized successfully');
+    }
   }
 
   async sendMail(emailData: { name: string; email: string; message: string }) {
     try {
-      // Get fresh access token
-      const accessTokenResponse = await this.oAuth2Client.getAccessToken();
-      const accessToken = accessTokenResponse.token;
+      const msg = {
+        to: process.env.RECIPIENT_EMAIL || process.env.GMAIL_USER, // Your email
+        from: process.env.SENDGRID_FROM_EMAIL, // Must be verified in SendGrid
+        replyTo: emailData.email, // User's email for easy reply
+        subject: `Portfolio Contact: Message from ${emailData.name}`,
+        text: `You have received a new message from your portfolio contact form.
 
-      if (!accessToken) {
-        throw new Error('Failed to retrieve access token');
-      }
+Name: ${emailData.name}
+Email: ${emailData.email}
 
-      console.log('Access Token retrieved successfully');
+Message:
+${emailData.message}
 
-      // Create transporter with explicit SMTP settings and timeout configuration
-      const transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        port: 587,
-        secure: false, // Use STARTTLS
-        auth: {
-          type: 'OAuth2',
-          user: process.env.GMAIL_USER,
-          clientId: process.env.GMAIL_CLIENT_ID,
-          clientSecret: process.env.GMAIL_CLIENT_SECRET,
-          refreshToken: process.env.GMAIL_REFRESH_TOKEN,
-          accessToken: accessToken,
-        },
-        connectionTimeout: 10000, // 10 seconds
-        greetingTimeout: 10000,
-        socketTimeout: 10000,
-      } as nodemailer.TransportOptions);
-
-      const mailOptions = {
-        to: process.env.GMAIL_USER, // Your email
-        from: emailData.email, // Sender's email
-        subject: `Message from ${emailData.name}`, // Email subject
-        text: `You have received a new message from your website contact form.
-  
-      Name: ${emailData.name}
-      Email: ${emailData.email}
-      Message: ${emailData.message}`,
+---
+Reply directly to this email to respond to ${emailData.name}.`,
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #333;">New Contact Form Message</h2>
+            <div style="background-color: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0;">
+              <p><strong>From:</strong> ${emailData.name}</p>
+              <p><strong>Email:</strong> <a href="mailto:${emailData.email}">${emailData.email}</a></p>
+            </div>
+            <div style="background-color: #fff; padding: 20px; border: 1px solid #ddd; border-radius: 5px;">
+              <p><strong>Message:</strong></p>
+              <p style="white-space: pre-wrap;">${emailData.message}</p>
+            </div>
+            <p style="color: #666; font-size: 12px; margin-top: 20px;">
+              Reply directly to this email to respond to ${emailData.name}.
+            </p>
+          </div>
+        `,
       };
 
-      console.log('Sending email with options:', mailOptions);
-      const result = await transporter.sendMail(mailOptions);
-      console.log('Email sent successfully:', result);
+      console.log('Sending email via SendGrid to:', msg.to);
+      const result = await sgMail.send(msg);
+      console.log('Email sent successfully via SendGrid:', result[0].statusCode);
       
-      return result;
+      return {
+        success: true,
+        messageId: result[0].headers['x-message-id'],
+      };
     } catch (error) {
-      console.error('Error sending email:', error);
+      console.error('SendGrid error:', error);
+      
+      // SendGrid errors have a response property with details
+      if (error.response) {
+        console.error('SendGrid error details:', error.response.body);
+      }
+      
       throw error;
     }
   }
