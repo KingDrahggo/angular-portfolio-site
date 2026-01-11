@@ -4,7 +4,7 @@ import { google } from 'googleapis';
 
 @Injectable()
 export class EmailService {
-  private transporter;
+  private oAuth2Client;
 
   constructor() {
     const CLIENT_ID = process.env.GMAIL_CLIENT_ID;
@@ -12,55 +12,57 @@ export class EmailService {
     const REFRESH_TOKEN = process.env.GMAIL_REFRESH_TOKEN;
     const REDIRECT_URI = 'https://developers.google.com/oauthplayground';
 
-    const oAuth2Client = new google.auth.OAuth2(
+    this.oAuth2Client = new google.auth.OAuth2(
       CLIENT_ID,
       CLIENT_SECRET,
       REDIRECT_URI,
     );
-    oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
-
-    // Get Access Token and set up the transporter
-    oAuth2Client
-      .getAccessToken()
-      .then((accessToken) => {
-        console.log('Access Token retrieved:', accessToken); // Log access token for debugging
-
-        this.transporter = nodemailer.createTransport({
-          service: 'gmail',
-          auth: {
-            type: 'OAuth2',
-            user: process.env.GMAIL_USER,
-            clientId: CLIENT_ID,
-            clientSecret: CLIENT_SECRET,
-            refreshToken: REFRESH_TOKEN,
-            accessToken: accessToken || undefined,
-          },
-        } as nodemailer.TransportOptions); // Explicit cast to TransportOptions
-      })
-      .catch((err) => {
-        console.error('Error retrieving access token', err); // Log token retrieval failure
-      });
+    this.oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
   }
 
   async sendMail(emailData: { name: string; email: string; message: string }) {
-    const mailOptions = {
-      to: process.env.GMAIL_USER, // Your email
-      from: emailData.email, // Sender's email
-      subject: `Message from ${emailData.name}`, // Email subject
-      text: `You have received a new message from your website contact form.
+    try {
+      // Get fresh access token
+      const accessTokenResponse = await this.oAuth2Client.getAccessToken();
+      const accessToken = accessTokenResponse.token;
+
+      if (!accessToken) {
+        throw new Error('Failed to retrieve access token');
+      }
+
+      console.log('Access Token retrieved successfully');
+
+      // Create transporter with fresh token
+      const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          type: 'OAuth2',
+          user: process.env.GMAIL_USER,
+          clientId: process.env.GMAIL_CLIENT_ID,
+          clientSecret: process.env.GMAIL_CLIENT_SECRET,
+          refreshToken: process.env.GMAIL_REFRESH_TOKEN,
+          accessToken: accessToken,
+        },
+      } as nodemailer.TransportOptions);
+
+      const mailOptions = {
+        to: process.env.GMAIL_USER, // Your email
+        from: emailData.email, // Sender's email
+        subject: `Message from ${emailData.name}`, // Email subject
+        text: `You have received a new message from your website contact form.
   
       Name: ${emailData.name}
       Email: ${emailData.email}
       Message: ${emailData.message}`,
-    };
+      };
 
-    // Rest of the email sending logic remains unchanged
-
-    try {
-      console.log('Sending email with options:', mailOptions); // Log email details
-      return await this.transporter.sendMail(mailOptions);
+      console.log('Sending email with options:', mailOptions);
+      const result = await transporter.sendMail(mailOptions);
+      console.log('Email sent successfully:', result);
+      
+      return result;
     } catch (error) {
-      console.error('Error sending email:', error); // Log any errors during email sending
+      console.error('Error sending email:', error);
       throw error;
     }
   }
