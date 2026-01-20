@@ -27,14 +27,14 @@ import { animate, style, transition, trigger } from '@angular/animations';
     ]
   })
 export class AboutComponent {
-  resumeUrl = "/assets/images/Gregory Reeves Software Engineer 5-14-2025.pdf"
+  resumeUrl = "/assets/images/Gregory Reeves Software Developer .docx.pdf"
   certUrl = "/assets/images/certificate.pdf"
 
   intro = ['Hello! My Name is'];
   myName = ['Gregory R.']
-  jobTitle = ["I'm a Software Engineer",
-    "I Can Construct",
-    "Full-Stack Applications"]
+  jobTitle = ["Software Engineer",
+    "Full-Stack Developer",
+    "Problem Solver"]
   private typewriterService = inject(TypewritereffectService);
 
   typedIntro$ = this.typewriterService

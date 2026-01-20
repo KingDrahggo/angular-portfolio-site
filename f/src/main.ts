@@ -7,14 +7,16 @@
 //   .catch(err => console.error(err));
 
 import { bootstrapApplication } from '@angular/platform-browser';
-import { provideNoopAnimations } from '@angular/platform-browser/animations';
+import { provideAnimations } from '@angular/platform-browser/animations';
 import { AppComponent } from './app/app.component';
 import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
 import routeConfig from './app/routes';
 
 bootstrapApplication(AppComponent, {
   providers:[
     provideRouter(routeConfig),
-    provideNoopAnimations() // Use this to disable animations
+    provideAnimations(),
+    provideHttpClient()
   ]
 }).catch(err => console.error(err));

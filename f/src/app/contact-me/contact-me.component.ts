@@ -2,13 +2,14 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-contact-me',
   standalone: true,
   templateUrl: './contact-me.component.html',
   styleUrls: ['./contact-me.component.css'],
-  imports: [CommonModule, ReactiveFormsModule, HttpClientModule]
+  imports: [CommonModule, ReactiveFormsModule, HttpClientModule, MatSnackBarModule]
 })
 export class ContactMeComponent {
   contactForm: FormGroup;
@@ -19,7 +20,7 @@ export class ContactMeComponent {
   // Use the Render URL for your backend
   private apiUrl = 'https://angular-portfolio-site-b.onrender.com'; // Update this URL
 
-  constructor(private http: HttpClient, private fb: FormBuilder) {
+  constructor(private http: HttpClient, private fb: FormBuilder, private snackBar: MatSnackBar) {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -49,5 +50,24 @@ export class ContactMeComponent {
           }
         });
     }
+  }
+  emailText = 'Email';
+
+  copyEmail() {
+    const email = 'webdevgregr@gmail.com';
+    navigator.clipboard.writeText(email).then(() => {
+      this.emailText = 'Copied!';
+      this.snackBar.open('Email copied to clipboard!', 'Close', {
+        duration: 3000,
+        horizontalPosition: 'center',
+        verticalPosition: 'bottom',
+        panelClass: ['green-snackbar'] // Optional: add custom class if needed
+      });
+      setTimeout(() => {
+        this.emailText = 'Email';
+      }, 2000); // Reset text after 2 seconds
+    }).catch(err => {
+      console.error('Failed to copy email: ', err);
+    });
   }
 }

@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { NavbarComponent } from './navbar/navbar.component';
-import { FooterComponent } from './footer/footer.component';
+
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { SkillsComponent } from './skills/skills.component';
@@ -20,7 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   imports: [HomeComponent,
-    FooterComponent,
+
     AboutComponent,
     SkillsComponent,
     ProjectsComponent,

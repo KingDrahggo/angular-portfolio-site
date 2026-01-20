@@ -1,11 +1,20 @@
-/* styles.css or styles.scss */
-mat-paginator {
-  background-color: #FB923C !important; /* Tailwind's bg-orange-400 */
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+  width: 100%;
+}
 
+mat-paginator {
+  background-color: transparent !important;
+  color: white !important;
+  /* Ensure text is visible on dark background */
 }
 
 
 mat-paginator button {
-  background-color: #FB923C; /* Tailwind's bg-orange-400 */
+  background-color: #FB923C;
+  /* Tailwind's bg-orange-400 */
   /* Button text color */
 }

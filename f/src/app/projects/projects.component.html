@@ -1,14 +1,16 @@
-<section class="container w-screen h-[80vh] flex flex-col items-center justify-center overflow-hidden">
-  <div class="project_containers h-fit grid justify-items-center w-9/12">
-    <div class="project_container h-fit m-1 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+<section class="container w-full h-full flex flex-col items-center justify-between overflow-y-auto custom-scrollbar px-4 pb-4">
+  <div class="project_containers flex flex-col justify-start w-full max-w-7xl animate-fade-in-up flex-grow">
+    <!-- Adjusted grid gap and card size to be more compact as requested -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full place-items-center">
       @for (p of addProjectsHere; track p) {
-        <li class="flex flex-col m-2 p-4 text-xs sm:text-base text-center shadow-lg shadow-black w-full h-25 lg:h-56 list-none rounded-2xl bg-black bg-opacity-50 text-white border-orange-400 border-2 transition-transform transform hover:scale-105 hover:shadow-xl">
-          <div class="w-full overflow-hidden">
-            <img class="h-0  lg:h-full w-full object-cover" [src]="p.imageUrl" [alt]="p.project_name" />
+        <div class="glass-card flex flex-col p-4 text-xs sm:text-sm text-center w-full h-auto rounded-xl transition-transform transform hover:scale-105 hover:shadow-2xl">
+          <!-- Reduced image height to prevent pushing content off screen -->
+          <div class="w-full h-32 sm:h-40 overflow-hidden rounded-lg mb-3">
+            <img class="h-full w-full object-cover" [src]="p.imageUrl" [alt]="p.project_name" />
           </div>
-          <h2 class="font-bold text-xs sm:text-lg mt-2">{{ p.project_name }}</h2>
-          <a [href]="p.url" target="_blank" class="font-medium italic underline hover:text-orange-400">View Project</a>
-        </li>
+          <h2 class="font-bold text-base sm:text-lg mt-1 text-white">{{ p.project_name }}</h2>
+          <a [href]="p.url" target="_blank" class="font-medium italic underline text-orange-400 hover:text-orange-300 mt-2 block">View Project</a>
+        </div>
       }
     </div>
   </div>
@@ -20,12 +22,7 @@
     [pageIndex]="page"
     (page)="getProjects($event)"
     aria-label="Select page"
-    class="bg-orange-400 text-white shadow-lg rounded-md mt-4 h-15"
+    class="glass-card !bg-opacity-80 text-white shadow-lg rounded-md mt-4 w-auto px-4 mt-auto"
   >
   </mat-paginator>
 </section>
-
-
-
-
-

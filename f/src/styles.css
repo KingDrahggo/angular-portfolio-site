@@ -13,8 +13,9 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden;
-  /* Prevent scrolling */
+  overflow-x: hidden;
+  overflow-y: hidden;
+  /* Allow vertical scrolling, prevent horizontal */
 }
 
 body {
@@ -23,5 +24,112 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center top;
-  backdrop-filter: blur(4px);
+}
+
+/* Glassmorphism Card Style */
+/* Glassmorphism Card Style (Dark Mode) */
+.glass-card {
+  background: rgba(0, 0, 0, 0.60);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  color: #fff;
+  /* Ensure white text globally in cards */
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-delay-1 {
+  animation-delay: 0.1s;
+}
+
+.animate-delay-2 {
+  animation-delay: 0.2s;
+}
+
+.animate-delay-3 {
+  animation-delay: 0.3s;
+}
+
+/* Angular Material Paginator Overrides for Dark Mode */
+.mat-mdc-paginator {
+  background: transparent !important;
+  color: white !important;
+}
+
+.mat-mdc-paginator .mat-mdc-text-field-wrapper {
+  background: transparent !important;
+}
+
+.mat-mdc-paginator .mat-mdc-select-value {
+  color: white !important;
+}
+
+.mat-mdc-paginator .mat-mdc-select-arrow {
+  color: white !important;
+}
+
+.mat-mdc-paginator .mat-mdc-paginator-icon {
+  fill: white !important;
+}
+
+.mat-mdc-icon-button[disabled] .mat-mdc-paginator-icon {
+  fill: rgba(255, 255, 255, 0.3) !important;
+}
+
+.mat-mdc-paginator-range-label,
+.mat-mdc-paginator-page-size-label {
+  color: white !important;
+}
+
+/* Dropdown Panel - Dark Glassmorphism */
+.mat-mdc-select-panel {
+  background: rgba(20, 20, 20, 0.95) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mat-mdc-option {
+  color: white !important;
+}
+
+.mat-mdc-option:hover,
+.mat-mdc-option.mat-mdc-option-active {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.mat-mdc-option.mat-mdc-selected:not(.mat-mdc-option-multiple) {
+  background: rgba(255, 165, 0, 0.3) !important;
+  /* Orange tint for selected */
+}
+
+/* Cleanup/Global Snackbar Styles */
+.green-snackbar {
+  --mdc-snackbar-container-color: rgba(20, 20, 20, 0.95);
+  --mdc-snackbar-supporting-text-color: #4ade80;
+  /* green-400 */
+  --mat-snack-bar-button-color: #4ade80;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+}
+
+.green-snackbar .mdc-snackbar__surface {
+  background-color: transparent !important;
+  /* Let container color handle it */
 }

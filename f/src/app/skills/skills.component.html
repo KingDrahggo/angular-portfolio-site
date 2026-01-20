@@ -1,49 +1,33 @@
-<section class="container font-bold p-4 bg-black bg-opacity-50 rounded-md shadow-lg shadow-orange-400 w-full h-fit flex flex-col items-center">
-  <!-- Frontend -->
-  <div class="frontend rounded-md bg-white bg-opacity-60 w-full p-3 m-3 flex flex-col items-center">
-    <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-center">Front-End Languages</h1>
-    <div class="flex flex-wrap justify-center gap-3 sm:gap-5 text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
-      <i class="devicon-javascript-plain colored" data-tooltip="JavaScript"></i>
-      <i class="devicon-angularjs-plain colored" data-tooltip="Angular2+"></i>
-      <i class="devicon-react-original colored" data-tooltip="React"></i>
-      <i class="devicon-jquery-plain colored" data-tooltip="JQuery"></i>
-      <i class="devicon-html5-plain colored" data-tooltip="HTML5"></i>
-      <i class="devicon-css3-plain colored" data-tooltip="CSS3"></i>
-      <i class="devicon-materialui-plain colored" data-tooltip="MaterialUI"></i>
-      <i class="devicon-tailwindcss-original colored" data-tooltip="TailWind"></i>
-      <i class="devicon-jasmine-plain colored" data-tooltip="Jasmine"></i>
-      <i class="devicon-karma-plain colored" data-tooltip="Karma"></i>
-    </div>
-  </div>
+<section class="container w-full h-full flex flex-col items-center justify-start overflow-y-auto px-4 py-2 custom-scrollbar">
+  
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-7xl animate-fade-in-up">
+    
+    <div *ngFor="let category of skillsData; let i = index" 
+         class="glass-card rounded-xl p-6 flex flex-col items-center shadow-lg transition-transform hover:scale-[1.02]"
+         [style.animation-delay]="i * 150 + 'ms'">
+      
+      <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center text-white border-b-2 border-orange-400 pb-2 w-full">
+        {{ category.category }}
+      </h2>
 
-  <!-- Backend -->
-  <div class="backend rounded-md bg-white bg-opacity-60 w-full p-3 m-3 flex flex-col items-center">
-    <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-center">Back-End Languages</h1>
-    <div class="flex flex-wrap justify-center gap-3 sm:gap-5 text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
-      <i class="devicon-nodejs-plain colored" data-tooltip="NodeJS"></i>
-      <i class="devicon-nextjs-original colored" data-tooltip="NextJS"></i>
-      <i class="devicon-nestjs-plain colored" data-tooltip="NestJS"></i>
-      <i class="devicon-express-original colored" data-tooltip="ExpressJS"></i>
-      <i class="devicon-mongodb-plain colored" data-tooltip="MongoDB"></i>
-      <i class="devicon-python-plain colored" data-tooltip="Python"></i>
-      <i class="devicon-java-plain colored" data-tooltip="Java"></i>
-      <i class="devicon-spring-plain colored" data-tooltip="SpringBoot"></i>
-      <i class="devicon-graphql-plain colored" data-tooltip="GraphQL"></i>
-    </div>
-  </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 w-full place-items-center">
+        <div *ngFor="let skill of category.skills" class="skill-item flex flex-col items-center group cursor-default text-center">
+          <div class="icon-wrapper p-3 rounded-full bg-black bg-opacity-30 transition-all duration-300 group-hover:bg-opacity-50 group-hover:scale-110 group-hover:shadow-md h-20 w-20 flex items-center justify-center">
+            
+            <!-- Fallback for Render using Material Icons (White) -->
+            <i *ngIf="skill.name === 'Render'" class="material-icons text-4xl md:text-5xl text-white">dns</i>
+            
+            <!-- Standard Devicon -->
+            <i *ngIf="skill.name !== 'Render'" [class]="skill.icon + ' text-4xl md:text-5xl text-gray-100'"></i>
+          
+          </div>
+          <span class="mt-2 text-sm font-bold text-white transition-opacity duration-300">
+            {{ skill.name }}
+          </span>
+        </div>
+      </div>
 
-  <!-- Other Tech -->
-  <div class="othertech rounded-md bg-white bg-opacity-60 w-full p-3 m-3 flex flex-col items-center">
-    <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-center">Other Technologies</h1>
-    <div class="flex flex-wrap justify-center gap-3 sm:gap-5 text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
-      <i class="devicon-figma-plain colored" data-tooltip="Figma"></i>
-      <i class="devicon-jira-plain colored" data-tooltip="Jira"></i>
-      <i class="devicon-git-plain colored" data-tooltip="Git"></i>
-      <i class="devicon-github-original colored" data-tooltip="Github"></i>
-      <i class="devicon-visualstudio-plain colored" data-tooltip="VScode"></i>
-      <i class="devicon-amazonwebservices-original colored" data-tooltip="AWS"></i>
-      <i class="devicon-jenkins-line colored" data-tooltip="Jenkins"></i>
     </div>
+
   </div>
 </section>
-
