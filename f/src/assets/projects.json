@@ -1,6 +1,12 @@
 [
   {
     "id": 0,
+    "project_name": "AI Enterprise Dashboard",
+    "imageUrl": "/assets/images/Ai Enterprise Dashboard.png",
+    "url": "https://enterprise-dashboard-frontend-lsjr.onrender.com"
+  },
+  {
+    "id": 1,
     "project_name": "Ecommerce Store",
     "imageUrl": "/assets/images/comingsoonimg.jpg",
     "url": "https://github.com/KingDrahggo/eCommerce"
@@ -14,31 +20,31 @@
   {
     "id": 3,
     "project_name": "Tic Tac Toe Game",
-    "imageUrl": "/assets/images/tictactreact.png",
+    "imageUrl": "/assets/images/React Tic Tac Toe.png",
     "url": "https://tictactoereact.onrender.com"
   },
   {
     "id": 4,
     "project_name": "Akira Movie Application",
-    "imageUrl": "/assets/images/akira-movie-tn.png",
+    "imageUrl": "/assets/images/Akira Movie Site.png",
     "url": "https://github.com/KingDrahggo/Akira-Movie-App"
   },
   {
     "id": 5,
     "project_name": "Trivia Quiz Application",
-    "imageUrl": "/assets/images/triviaimg.PNG",
+    "imageUrl": "/assets/images/Trivia Game.png",
     "url": "https://kingdrahggo.github.io/capstone-trivia/"
   },
   {
     "id": 6,
     "project_name": "To Do List Application",
-    "imageUrl": "/assets/images/to-do-list.png",
+    "imageUrl": "/assets/images/To Do List Mean Stack.png",
     "url": "https://github.com/KingDrahggo/To-Do-List-Mean"
   },
   {
     "id": 7,
     "project_name": "Pig Latin Application",
-    "imageUrl": "/assets/images/piglatinimg.jpg",
+    "imageUrl": "/assets/images/Pig Latin Generator.png",
     "url": "https://kingdrahggo.github.io/piglatin-unittesting/"
   }
 ]
