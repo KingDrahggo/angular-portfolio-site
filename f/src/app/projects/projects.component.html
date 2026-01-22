@@ -1,42 +1,42 @@
-<section class="container w-full h-full flex flex-col items-center justify-between overflow-y-auto overflow-x-hidden custom-scrollbar px-2 sm:px-4 pb-28">
+<section class="container w-full h-full flex flex-col items-center justify-between overflow-y-auto overflow-x-hidden custom-scrollbar px-2 sm:px-4 pb-12">
   <div class="project_containers flex flex-col justify-start w-full max-w-7xl flex-grow min-w-0">
     
-    <!-- Filter Buttons -->
-    <div class="flex flex-wrap justify-center gap-2 mb-4 w-full px-2">
+    <!-- Filter Buttons: Reduced margin -->
+    <div class="flex flex-wrap justify-center gap-1.5 mb-2 w-full px-2">
       @for (tag of uniqueTags; track tag) {
         <button (click)="filterProjects(tag)"
                 [class.bg-orange-400]="tag === selectedTag"
                 [class.text-black]="tag === selectedTag"
                 [class.bg-black]="tag !== selectedTag"
                 [class.text-white]="tag !== selectedTag"
-                class="px-3 py-1 sm:px-4 sm:py-2 rounded-full border border-orange-400 text-xs sm:text-sm font-bold transition-all hover:scale-105">
+                class="px-2 py-0.5 sm:px-3 sm:py-1 rounded-full border border-orange-400 text-[10px] sm:text-xs font-bold transition-all hover:scale-105">
           {{ tag }}
         </button>
       }
     </div>
 
-    <!-- Adjusted grid gap and card size to be more compact as requested -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 w-full place-items-center min-w-0">
+    <!-- Compact Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 w-full place-items-center min-w-0">
       @for (p of addProjectsHere; track p) {
-        <a [href]="p.url" target="_blank" appAnimateOnScroll class="glass-card flex flex-col p-3 sm:p-4 text-xs sm:text-sm text-center w-full h-auto rounded-xl transition-transform transform hover:scale-105 hover:shadow-2xl min-w-0 justify-between cursor-pointer decoration-transparent no-underline hover:text-white visited:text-white">
+        <a [href]="p.url" target="_blank" appAnimateOnScroll class="glass-card flex flex-col p-2 text-[10px] sm:text-xs text-center w-full h-auto rounded-lg transition-transform transform hover:scale-105 hover:shadow-2xl min-w-0 justify-between cursor-pointer decoration-transparent no-underline hover:text-white visited:text-white">
           <div>
-            <!-- Reduced image height to prevent pushing content off screen -->
-            <div class="w-full h-28 sm:h-32 md:h-40 overflow-hidden rounded-lg mb-2 sm:mb-3">
+            <!-- Compact Image: h-24 on desktop -->
+            <div class="w-full h-20 sm:h-24 overflow-hidden rounded-md mb-1.5">
               <img class="h-full w-full object-cover" [src]="p.imageUrl" [alt]="p.project_name" />
             </div>
-            <h2 class="font-bold text-sm sm:text-base md:text-lg mt-1 text-white">{{ p.project_name }}</h2>
+            <h2 class="font-bold text-xs sm:text-sm mt-0.5 text-white truncate px-1">{{ p.project_name }}</h2>
             
-            <!-- Tech Badges -->
-            <div class="flex flex-wrap justify-center gap-1.5 mt-2">
+            <!-- Compact Badges -->
+            <div class="flex flex-wrap justify-center gap-1 mt-1.5">
               @for (tag of p.tags; track tag) {
-                <span class="text-[10px] sm:text-xs bg-orange-400/10 text-orange-400 border border-orange-400/50 px-2 py-0.5 rounded-full">
+                <span class="text-[9px] bg-orange-400/10 text-orange-400 border border-orange-400/50 px-1.5 py-0 rounded-full">
                   {{ tag }}
                 </span>
               }
             </div>
           </div>
           
-          <span class="font-medium italic underline text-orange-400 hover:text-orange-300 mt-3 block text-xs sm:text-sm">View Project</span>
+          <span class="font-medium italic underline text-orange-400 hover:text-orange-300 mt-2 block text-[10px]">View Project</span>
         </a>
       }
     </div>
