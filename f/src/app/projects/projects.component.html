@@ -1,4 +1,4 @@
-<section class="container w-full h-full flex flex-col items-center justify-between overflow-y-auto overflow-x-hidden custom-scrollbar px-2 sm:px-4 pb-4">
+<section class="container w-full h-full flex flex-col items-center justify-between overflow-y-auto overflow-x-hidden custom-scrollbar px-2 sm:px-4 pb-28">
   <div class="project_containers flex flex-col justify-start w-full max-w-7xl flex-grow min-w-0">
     
     <!-- Filter Buttons -->
@@ -18,7 +18,7 @@
     <!-- Adjusted grid gap and card size to be more compact as requested -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 w-full place-items-center min-w-0">
       @for (p of addProjectsHere; track p) {
-        <div appAnimateOnScroll class="glass-card flex flex-col p-3 sm:p-4 text-xs sm:text-sm text-center w-full h-auto rounded-xl transition-transform transform hover:scale-105 hover:shadow-2xl min-w-0 justify-between">
+        <a [href]="p.url" target="_blank" appAnimateOnScroll class="glass-card flex flex-col p-3 sm:p-4 text-xs sm:text-sm text-center w-full h-auto rounded-xl transition-transform transform hover:scale-105 hover:shadow-2xl min-w-0 justify-between cursor-pointer decoration-transparent no-underline hover:text-white visited:text-white">
           <div>
             <!-- Reduced image height to prevent pushing content off screen -->
             <div class="w-full h-28 sm:h-32 md:h-40 overflow-hidden rounded-lg mb-2 sm:mb-3">
@@ -36,8 +36,8 @@
             </div>
           </div>
           
-          <a [href]="p.url" target="_blank" class="font-medium italic underline text-orange-400 hover:text-orange-300 mt-3 block text-xs sm:text-sm">View Project</a>
-        </div>
+          <span class="font-medium italic underline text-orange-400 hover:text-orange-300 mt-3 block text-xs sm:text-sm">View Project</span>
+        </a>
       }
     </div>
   </div>
