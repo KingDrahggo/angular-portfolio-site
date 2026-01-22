@@ -4,17 +4,36 @@
   flex: 1;
   height: 100%;
   width: 100%;
+  overflow-x: hidden;
 }
 
 mat-paginator {
   background-color: transparent !important;
   color: white !important;
   /* Ensure text is visible on dark background */
+  max-width: 100%;
+  overflow-x: hidden;
 }
-
 
 mat-paginator button {
   background-color: #FB923C;
   /* Tailwind's bg-orange-400 */
   /* Button text color */
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 640px) {
+  mat-paginator {
+    font-size: 12px;
+  }
+
+  mat-paginator .mat-mdc-paginator-range-label,
+  mat-paginator .mat-mdc-paginator-page-size-label {
+    font-size: 11px;
+  }
+
+  mat-paginator button {
+    min-width: 36px;
+    padding: 4px;
+  }
 }
