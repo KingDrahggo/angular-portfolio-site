@@ -3,4 +3,5 @@ export interface Projects {
   project_name: string,
   imageUrl: string,
   url: string,
+  tags?: string[]
 }

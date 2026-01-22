@@ -1,5 +1,5 @@
 
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
 
@@ -33,4 +33,10 @@ ReactiveFormsModule]
 })
 export class AppComponent {
   title = 'portfolio-site';
+
+  @HostListener('document:mousemove', ['$event'])
+  onMouseMove(e: MouseEvent) {
+    document.documentElement.style.setProperty('--cursor-x', `${e.clientX}px`);
+    document.documentElement.style.setProperty('--cursor-y', `${e.clientY}px`);
+  }
 }

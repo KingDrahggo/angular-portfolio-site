@@ -3,13 +3,14 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { AnimateOnScrollDirective } from '../directives/animate-on-scroll.directive';
 
 @Component({
   selector: 'app-contact-me',
   standalone: true,
   templateUrl: './contact-me.component.html',
   styleUrls: ['./contact-me.component.css'],
-  imports: [CommonModule, ReactiveFormsModule, HttpClientModule, MatSnackBarModule]
+  imports: [CommonModule, ReactiveFormsModule, HttpClientModule, MatSnackBarModule, AnimateOnScrollDirective]
 })
 export class ContactMeComponent {
   contactForm: FormGroup;

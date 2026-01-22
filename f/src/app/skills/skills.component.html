@@ -1,10 +1,11 @@
 <section class="container w-full h-full flex flex-col items-center justify-start overflow-y-auto overflow-x-hidden px-2 sm:px-4 py-2 custom-scrollbar">
   
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 w-full max-w-7xl animate-fade-in-up min-w-0">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 w-full max-w-7xl min-w-0">
     
     <div *ngFor="let category of skillsData; let i = index" 
+         appAnimateOnScroll
          class="glass-card rounded-xl p-4 sm:p-6 flex flex-col items-center shadow-lg transition-transform hover:scale-[1.02] min-w-0"
-         [style.animation-delay]="i * 150 + 'ms'">
+         [style.transition-delay]="i * 150 + 'ms'">
       
       <h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6 text-center text-white border-b-2 border-orange-400 pb-2 w-full">
         {{ category.category }}

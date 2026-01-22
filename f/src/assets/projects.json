@@ -3,54 +3,94 @@
     "id": 0,
     "project_name": "Passport Preparatory Academy",
     "imageUrl": "/assets/images/PPA.png",
-    "url": "https://pp-academy-f.onrender.com/"
+    "url": "https://pp-academy-f.onrender.com/",
+    "tags": [
+      "Angular",
+      "TypeScript",
+      "Tailwind"
+    ]
   },
   {
     "id": 1,
     "project_name": "AI Enterprise Dashboard",
     "imageUrl": "/assets/images/Ai Enterprise Dashboard.png",
-    "url": "https://enterprise-dashboard-frontend-lsjr.onrender.com/dashboard"
+    "url": "https://enterprise-dashboard-frontend-lsjr.onrender.com/dashboard",
+    "tags": [
+      "Angular",
+      ".NET",
+      "Chart.js"
+    ]
   },
   {
     "id": 2,
     "project_name": "Ecommerce Store",
     "imageUrl": "/assets/images/FlexEcomstore.png",
-    "url": "https://ecommerce-szco.onrender.com/"
+    "url": "https://ecommerce-szco.onrender.com/",
+    "tags": [
+      "Angular",
+      "Stripe",
+      "Auth0"
+    ]
   },
   {
     "id": 3,
     "project_name": "Akira Movie Application",
     "imageUrl": "/assets/images/Akira Movie Site.png",
-    "url": "https://akira-movie-app-1.onrender.com/"
+    "url": "https://akira-movie-app-1.onrender.com/",
+    "tags": [
+      "Angular",
+      "API",
+      "SCSS"
+    ]
   },
   {
     "id": 4,
     "project_name": "Trivia Quiz Application",
     "imageUrl": "/assets/images/Trivia Game.png",
-    "url": "https://capstone-trivia.onrender.com/"
+    "url": "https://capstone-trivia.onrender.com/",
+    "tags": [
+      "Angular",
+      "TypeScript"
+    ]
   },
   {
     "id": 5,
     "project_name": "Original Portfolio Site",
     "imageUrl": "/assets/images/originalps.png",
-    "url": "https://kingdrahggo.github.io/portfolio-site/"
+    "url": "https://kingdrahggo.github.io/portfolio-site/",
+    "tags": [
+      "HTML/CSS",
+      "JavaScript"
+    ]
   },
   {
     "id": 6,
     "project_name": "Tic Tac Toe Game",
     "imageUrl": "/assets/images/React Tic Tac Toe.png",
-    "url": "https://tictactoereact.onrender.com"
+    "url": "https://tictactoereact.onrender.com",
+    "tags": [
+      "React",
+      "Hooks"
+    ]
   },
   {
     "id": 7,
     "project_name": "To Do List Application",
     "imageUrl": "/assets/images/To Do List Mean Stack.png",
-    "url": "https://to-do-list-mean-f.onrender.com/"
+    "url": "https://to-do-list-mean-f.onrender.com/",
+    "tags": [
+      "MEAN Stack",
+      "MongoDB"
+    ]
   },
   {
     "id": 8,
     "project_name": "Pig Latin Application",
     "imageUrl": "/assets/images/Pig Latin Generator.png",
-    "url": "https://piglatin-generator.onrender.com"
+    "url": "https://piglatin-generator.onrender.com",
+    "tags": [
+      "JavaScript",
+      "Algorithms"
+    ]
   }
 ]
