@@ -53,11 +53,13 @@ export class AboutComponent {
 // Dialog for read more----------------------------------------------------------------
   readonly dialog = inject(MatDialog);
 
-openDialog() {
-  const dialogRef = this.dialog.open(DialogComponent, {
-    height: '15em',
-    width: '46em',
-  });
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      maxHeight: '90vh',
+      maxWidth: '95vw',
+      width: 'auto',
+      panelClass: 'custom-dialog-container'
+    });
 
   dialogRef.afterClosed().subscribe(result => {
     console.log(`Dialog result: ${result}`);
