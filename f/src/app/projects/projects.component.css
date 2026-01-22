@@ -23,17 +23,38 @@ mat-paginator button {
 
 /* Mobile responsive adjustments */
 @media (max-width: 640px) {
-  mat-paginator {
-    font-size: 12px;
+
+  /* Use ::ng-deep to override Angular Material internal styles */
+  ::ng-deep .mat-mdc-paginator-page-size-label {
+    display: none !important;
   }
 
-  mat-paginator .mat-mdc-paginator-range-label,
-  mat-paginator .mat-mdc-paginator-page-size-label {
-    font-size: 11px;
+  /* Adjust container to fit */
+  ::ng-deep .mat-mdc-paginator-container {
+    padding: 0 !important;
+    justify-content: center !important;
+    min-height: 48px !important;
+    /* Allow it to be smaller */
   }
 
-  mat-paginator button {
-    min-width: 36px;
-    padding: 4px;
+  /* Reduce range label spacing */
+  ::ng-deep .mat-mdc-paginator-range-label {
+    margin: 0 4px !important;
+    font-size: 11px !important;
+  }
+
+  /* Compact dropdown */
+  ::ng-deep .mat-mdc-paginator-page-size {
+    margin-right: 4px !important;
+  }
+
+  /* Compact buttons */
+  ::ng-deep .mat-mdc-paginator-navigation-next,
+  ::ng-deep .mat-mdc-paginator-navigation-previous,
+  ::ng-deep .mat-mdc-paginator-navigation-first,
+  ::ng-deep .mat-mdc-paginator-navigation-last {
+    padding: 0 !important;
+    width: 32px !important;
+    min-width: 32px !important;
   }
 }
