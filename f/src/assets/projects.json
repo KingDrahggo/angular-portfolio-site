@@ -34,6 +34,17 @@
   },
   {
     "id": 3,
+    "project_name": "JobhunterAi",
+    "imageUrl": "/assets/images/JobHunterAi.png",
+    "url": "https://jobhunter-web.onrender.com/",
+    "tags": [
+      "React",
+      "Vite",
+      "AI"
+    ]
+  },
+  {
+    "id": 4,
     "project_name": "Akira Movie Application",
     "imageUrl": "/assets/images/Akira Movie Site.png",
     "url": "https://akira-movie-app-1.onrender.com/",
@@ -44,7 +55,7 @@
     ]
   },
   {
-    "id": 4,
+    "id": 5,
     "project_name": "Trivia Quiz Application",
     "imageUrl": "/assets/images/Trivia Game.png",
     "url": "https://capstone-trivia.onrender.com/",
@@ -54,7 +65,7 @@
     ]
   },
   {
-    "id": 5,
+    "id": 6,
     "project_name": "Original Portfolio Site",
     "imageUrl": "/assets/images/originalps.png",
     "url": "https://kingdrahggo.github.io/portfolio-site/",
@@ -64,7 +75,7 @@
     ]
   },
   {
-    "id": 6,
+    "id": 7,
     "project_name": "Tic Tac Toe Game",
     "imageUrl": "/assets/images/React Tic Tac Toe.png",
     "url": "https://tictactoereact.onrender.com",
@@ -74,7 +85,7 @@
     ]
   },
   {
-    "id": 7,
+    "id": 8,
     "project_name": "To Do List Application",
     "imageUrl": "/assets/images/To Do List Mean Stack.png",
     "url": "https://to-do-list-mean-f.onrender.com/",
@@ -84,7 +95,7 @@
     ]
   },
   {
-    "id": 8,
+    "id": 9,
     "project_name": "Pig Latin Application",
     "imageUrl": "/assets/images/Pig Latin Generator.png",
     "url": "https://piglatin-generator.onrender.com",
