@@ -104,5 +104,16 @@
       "JavaScript",
       "Algorithms"
     ]
+  },
+  {
+    "id": 10,
+    "project_name": "Interview Prep Flashcards",
+    "imageUrl": "/assets/images/webdevinterviewprep.png",
+    "url": "https://interview-prep-flashcards.onrender.com/",
+    "tags": [
+      "Angular",
+      "TypeScript",
+      "Education"
+    ]
   }
 ]
